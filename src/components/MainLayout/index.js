@@ -4,10 +4,10 @@ import { Item } from '../Item';
 import { Board } from '../Board';
 
 const groupList = [
-  { group: 'group 1', date: 'Jan - Feb', class: 'g1' },
-  { group: 'group 2', date: 'Mar - Apr', class: 'g2' },
-  { group: 'group 3', date: 'Mai - Jun', class: 'g3' },
-  { group: 'group 4', date: 'Jul - Aug', class: 'g4' },
+  { group: 'group 1', date: 'Jan - Feb', color: 'blue' },
+  { group: 'group 2', date: 'Mar - Apr', color: 'yellow' },
+  { group: 'group 3', date: 'Mai - Jun', color: 'green' },
+  { group: 'group 4', date: 'Jul - Aug', color: 'red' },
 ];
 
 const itemList = [
@@ -22,11 +22,12 @@ const MainLayout = () => {
     <div className='main-comp'>
       <div className='main-board'>
         {groupList.map((d) => (
-          <Board group={d.group} date={d.date}>
+          <Board group={d.group} date={d.date} color={d.color}>
             {itemList.map((data) => (
               <Item
                 text={data.text}
                 progress={data.progress}
+                progsize={data.progress}
                 key={Math.random()}
               />
             ))}

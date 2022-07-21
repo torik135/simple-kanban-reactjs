@@ -7,7 +7,7 @@
   display: flex;
   position: relative;
   flex-direction: column;
-  height: 350px;
+  min-height: 390px;
   width: 400px;
   min-width: 250px;
   padding: 1.5rem;
@@ -16,10 +16,13 @@
 }
 
 .board-group {
-  border-radius: 12px;
+  border-radius: 7px;
   padding: 5px;
   margin-bottom: 12px;
   min-width: 24px;
+  width: 20%;
+  align-items: center;
+  font-weight: bolder;
 }
 
 .g1 {

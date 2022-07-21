@@ -5,6 +5,7 @@
 .item-container {
   border: 1px solid blue;
   padding: 10px;
+  border-radius: 7px;
 }
 
 .item-progress {
@@ -12,4 +13,20 @@
   justify-content: space-between;
   padding-top: 12px;
   border-radius: 20px;
+}
+
+.item-prog {
+  background: grey;
+  height: 15px;
+  width: 290px;
+}
+
+.item-prog .prog-color {
+  background: green;
+  height: 15px;
+}
+
+.item-text {
+  border-bottom: 1px dashed var(--black20);
+  padding-bottom: var(--padglobal);
 }
