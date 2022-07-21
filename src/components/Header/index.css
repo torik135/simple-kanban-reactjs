@@ -1,0 +1,5 @@
+.header-comp {
+  padding: var(--padglobal);
+  padding-left: var(--padleft);
+  box-shadow: var(--shad1);
+}
