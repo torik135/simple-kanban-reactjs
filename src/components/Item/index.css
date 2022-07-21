@@ -1,0 +1,15 @@
+.item-comp {
+  padding: var(--padglobal);
+}
+
+.item-container {
+  border: 1px solid blue;
+  padding: 10px;
+}
+
+.item-progress {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-radius: 20px;
+}

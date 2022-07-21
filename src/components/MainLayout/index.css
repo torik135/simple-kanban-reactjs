@@ -1,0 +1,15 @@
+.main-board {
+  display: flex;
+  padding: 3rem;
+  overflow-x: scroll;
+  background: var(--prim-color);
+  border-radius: 10px;
+}
+
+.g1 {
+  border: 1px solid 'red';
+}
+
+.g2 {
+  border: 1px solid 'green';
+}

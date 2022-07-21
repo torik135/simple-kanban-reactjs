@@ -1,0 +1,10 @@
+.progressbar-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.prog-bar {
+  border: 1px solid red;
+  width: 90%;
+  height: 10px;
+}
