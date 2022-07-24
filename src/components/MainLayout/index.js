@@ -11,10 +11,10 @@ const groupList = [
 ];
 
 const itemList = [
-  { text: 'task 1', progress: 10 },
-  { text: 'task 2', progress: 40 },
-  { text: 'task 3', progress: 20 },
-  { text: 'task 4', progress: 30 },
+  { text: 'task 1', progress: 10, group: 'group 1' },
+  { text: 'task 2', progress: 40, group: 'group 4' },
+  { text: 'task 3', progress: 20, group: 'group 1' },
+  { text: 'task 4', progress: 30, group: 'group 2' },
 ];
 
 const MainLayout = () => {
