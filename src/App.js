@@ -1,14 +1,16 @@
-import { MainLayout } from './components/MainLayout';
-import { Header } from './components/Header';
 import './App.css';
+
+import { Header } from './components/Header';
+import { MainLayout } from './components/MainLayout';
 
 function App() {
   return (
     <div className='App'>
-      <header className='App-header'>
+      <header>
         <Header />
       </header>
-      <main className='app-content'>
+
+      <main>
         <MainLayout />
       </main>
     </div>

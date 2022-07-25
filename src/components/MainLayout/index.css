@@ -1,10 +1,18 @@
-.main-board {
-  display: flex;
-  padding: 3rem;
-  overflow-x: scroll;
-  border-radius: 10px;
+.main-container {
+  padding: var(--padglobal);
+  padding-left: 24px;
+  padding-top: 24px;
+  height: 100vh;
 }
 
-.new-task {
-  padding-top: var(--padglobal);
+.main-content {
+  height: 100%;
+  overflow-x: scroll;
+}
+
+.main-board {
+  display: flex;
+  padding: var(--padglobal);
+
+  border-radius: 10px;
 }

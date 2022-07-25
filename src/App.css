@@ -1,9 +1,8 @@
 :root {
-  --black20: rgba(0, 0, 0, 0.2);
-
   --padglobal: 8px;
-  --padleft: 24px;
-  --shad1: 1px 2px 1px var(--black20);
+
+  --black20: rgba(0, 0, 0, 0.2);
+  --shadow-1: 1px 1px 1px var(--black20);
 }
 
 .App {

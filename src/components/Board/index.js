@@ -1,20 +1,23 @@
 import './index.css';
 
+import { Task } from '../Task';
+
 const Board = (props) => {
-  const { group, date, color, children } = props;
+  const { tasks, todos } = props;
   return (
-    <div className='board-comp'>
-      <div className='board-container' style={{ border: `1px solid ${color}` }}>
-        <div
-          className='board-group'
-          style={{ border: `1px solid ${color}`, color: `${color}` }}
-        >
-          {group}
+    <>
+      {todos.map((todo) => (
+        <div className='board-container' key={Math.random()}>
+          <div className='board-content'>
+            <div className='board-title'>{todo.title}</div>
+            <div className='board-desc'>{todo.description}</div>
+
+            <Task tasks={tasks} todos={todo} />
+            <div className='new-task'>+ New Task</div>
+          </div>
         </div>
-        <div className='board-date'>{date}</div>
-        {children}
-      </div>
-    </div>
+      ))}
+    </>
   );
 };
 

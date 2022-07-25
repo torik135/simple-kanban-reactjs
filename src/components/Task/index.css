@@ -1,0 +1,37 @@
+.task-container {
+  padding: 4px;
+}
+
+.task-content {
+  border: 1px solid blue;
+  border-radius: 7px;
+  padding: 16px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.task-name {
+  border-bottom: 1px dashed var(--black20);
+  padding-bottom: var(--padglobal);
+}
+
+.task-progress_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: var(--padglobal);
+}
+
+.task-progress_graph {
+  width: 250px;
+  height: 15px;
+  background: green;
+  border-radius: 7px;
+}
+
+.progress-color {
+  height: 15px;
+  position: absolute;
+  background: red;
+  border-radius: 7px;
+}
