@@ -13,6 +13,7 @@ const Board = (props) => {
             <div className='board-desc'>{todo.description}</div>
 
             <Task tasks={tasks} todos={todo} />
+
             <div className='new-task'>+ New Task</div>
           </div>
         </div>

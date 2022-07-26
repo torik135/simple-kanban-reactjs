@@ -19,18 +19,20 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   padding-top: var(--padglobal);
 }
 
 .task-progress_graph {
-  width: 250px;
-  height: 15px;
+  display: flex;
+  width: 150px;
+  height: 7px;
   background: green;
   border-radius: 7px;
 }
 
 .progress-color {
-  height: 15px;
+  height: 7px;
   position: absolute;
   background: red;
   border-radius: 7px;

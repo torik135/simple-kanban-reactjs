@@ -1,6 +1,6 @@
 import './index.css';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Board } from '../Board';
 
 const todoList = [
@@ -8,6 +8,7 @@ const todoList = [
   { title: 'Group Task 2', description: 'Apr - Jun', id: 2 },
   { title: 'Group Task 3', description: 'Jul - Sep', id: 3 },
   { title: 'Group Task 4', description: 'Oct - Des', id: 4 },
+  { title: 'Group Task 5', description: 'Oct - Des', id: 5 },
 ];
 
 const taskList = [
@@ -39,7 +40,31 @@ const taskList = [
     name: 'This Task 5. todo id 4',
     todo_id: 4,
     progress_percentage: 20,
-    id: 14,
+    id: 15,
+  },
+  {
+    name: 'This Task 6. todo id 1',
+    todo_id: 1,
+    progress_percentage: 20,
+    id: 16,
+  },
+  {
+    name: 'This Task 7. todo id 1',
+    todo_id: 1,
+    progress_percentage: 20,
+    id: 17,
+  },
+  {
+    name: 'This Task 8. todo id 1',
+    todo_id: 1,
+    progress_percentage: 20,
+    id: 18,
+  },
+  {
+    name: 'This Task 9. todo id 1',
+    todo_id: 1,
+    progress_percentage: 40,
+    id: 19,
   },
 ];
 
@@ -48,6 +73,11 @@ const MainLayout = () => {
   const [taskState, setTaskState] = useState(taskList);
 
   const todoLength = todoState.length > 0;
+
+  useEffect(() => {
+    setTodoState(todoList);
+    setTaskState(taskList);
+  }, [todoState, taskState]);
 
   return (
     <div className='main-container'>
