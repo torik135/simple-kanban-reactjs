@@ -37,3 +37,10 @@
   background: red;
   border-radius: 7px;
 }
+
+.task-progress_opt {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}

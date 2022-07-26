@@ -12,6 +12,5 @@
 .main-board {
   display: flex;
   padding: var(--padglobal);
-  border-radius: 10px;
   overflow-y: scroll;
 }

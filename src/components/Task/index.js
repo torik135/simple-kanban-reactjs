@@ -1,5 +1,7 @@
 import './index.css';
 
+import { FaEllipsisH as ThreeDotsIcon } from 'react-icons/fa';
+
 /*
 task.percentage
   progress-color = task-progress_graph / 100 = 150 / 100 = 1.5
@@ -27,7 +29,9 @@ const Task = (props) => {
                 <div className='task-progress_text'>
                   {task.progress_percentage}%
                 </div>
-                <div className='task-progress_opt'>opt</div>
+                <div className='task-progress_opt'>
+                  <ThreeDotsIcon />
+                </div>
               </div>
             </div>
           </div>

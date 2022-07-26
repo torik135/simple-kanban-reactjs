@@ -1,5 +1,6 @@
 import './index.css';
 
+import { FaPlus as PlusIcon } from 'react-icons/fa';
 import { Task } from '../Task';
 
 const Board = (props) => {
@@ -14,7 +15,12 @@ const Board = (props) => {
 
             <Task tasks={tasks} todos={todo} />
 
-            <div className='new-task'>+ New Task</div>
+            <div className='new-task'>
+              <i>
+                <PlusIcon />
+              </i>
+              New Task
+            </div>
           </div>
         </div>
       ))}
