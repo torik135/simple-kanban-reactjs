@@ -6,8 +6,8 @@ import { todoList, taskList } from '../../Utils/data';
 import { Board } from '../Board';
 
 const MainLayout = () => {
-  const [todoState, setTodoState] = useState(todoList);
-  const [taskState, setTaskState] = useState(taskList);
+  const [todoState, setTodoState] = useState([]);
+  const [taskState, setTaskState] = useState([]);
 
   const todoNotEmpty = todoState.length > 0;
 

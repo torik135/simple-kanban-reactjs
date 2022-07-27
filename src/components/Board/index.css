@@ -1,6 +1,6 @@
 .board-container {
   padding: var(--padglobal);
-  border-radius: var(--border5);
+  width: 100%;
 }
 
 .board-content {
@@ -13,12 +13,12 @@
   width: 270px;
   min-width: 250px;
   padding: 1.5rem;
-  border-radius: 16px;
+  border-radius: var(--border5);
 }
 
 .board-title {
   border: 1px solid red;
-  border-radius: 7px;
+  border-radius: var(--border5);
   width: 100px;
   min-width: 50px;
   padding: 4px;
