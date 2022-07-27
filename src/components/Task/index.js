@@ -41,7 +41,7 @@ const Task = (props) => {
               <div className='task-name'>{task.name}</div>
               <div
                 className='task-progress_container'
-                onMouseLeave={() => setOptState(false)}
+                // onMouseLeave={() => setOptState(false)}
               >
                 <div className='task-progress_graph'>
                   <div
@@ -57,11 +57,15 @@ const Task = (props) => {
                 <div
                   className='task-progress_opt'
                   onClick={() => setIdState(task.id)}
-                  onMouseLeave={() => setIdState('')}
                 >
                   <ThreeDotsIcon />
                 </div>
-                <div className='opt' id={task.id} style={{ display: 'none' }}>
+                <div
+                  className='opt'
+                  id={task.id}
+                  style={{ display: 'none' }}
+                  onMouseLeave={() => setIdState('')}
+                >
                   <TaskOpt />
                 </div>
               </div>

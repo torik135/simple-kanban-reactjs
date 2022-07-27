@@ -47,6 +47,12 @@
 
 .opt {
   position: absolute;
+  right: 5px;
+  transform: translateX(60%) translateY(30%);
   font-size: 12px;
-  z-index: 999;
+  background: #fff;
+  border-radius: var(--border5);
+  border: 1px solid var(--black20);
+  padding: var(--padglobal);
+  z-index: 9;
 }
