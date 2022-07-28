@@ -67,6 +67,12 @@ const taskList = [
     progress_percentage: 80,
     id: 20,
   },
+  {
+    name: 'This is NEW Task',
+    todo_id: 5,
+    progress_percentage: 80,
+    id: 21,
+  },
 ];
 
 export { todoList, taskList };

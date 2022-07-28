@@ -26,10 +26,30 @@ const Task = (props) => {
 
   const moveRAct = (task) => {
     console.log(task.todo_id);
+    var taskToMove = task.todo_id < todoState.length;
+    console.log(taskToMove);
+    if (taskToMove) {
+      var moveR = task.todo_id + 1;
+      console.log(`IF: move to ${moveR}`);
+    } else {
+      // move to first board / card
+      var taskFirst = (task.todo_id = 1);
+      console.log(`ELSE: move to ${taskFirst}`);
+    }
   };
 
   const moveLAct = (task) => {
-    console.log(task);
+    console.log(task.todo_id);
+    var taskToMove = task.todo_id < todoState.length;
+    console.log(taskToMove);
+    if (!taskToMove) {
+      var moveL = task.todo_id - 1;
+      console.log(`IF: move to ${moveL}`);
+    } else {
+      // move to last board / card
+      var taskLast = (task.todo_id = todoState.length);
+      console.log(`ELSE: move to ${taskLast}`);
+    }
   };
 
   useEffect(() => {
@@ -42,8 +62,7 @@ const Task = (props) => {
     }
 
     getIdAsync(idState);
-  }, [idState, taskState]);
-
+  }, [idState, taskState, todoState]);
   return (
     <>
       {tasks
