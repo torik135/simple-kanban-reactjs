@@ -7,29 +7,31 @@ import {
   FaTrash as DeleteIcon,
 } from 'react-icons/fa';
 
-const TaskOpt = () => {
+const TaskOpt = (props) => {
+  const { editAction, deleteAction, moveRAction, moveLAction } = props;
+
   return (
     <div className='task-opt-container'>
       <div className='task-opt-content'>
-        <div className='opts opt-delete'>
+        <div className='opts opt-delete' onClick={deleteAction}>
           <i className='opt-icon'>
             <DeleteIcon />
           </i>
           delete
         </div>
-        <div className='opts opt-edit'>
+        <div className='opts opt-edit' onClick={editAction}>
           <i className='opt-icon'>
             <EditIcon />
           </i>
           edit
         </div>
-        <div className='opts opt-move-right'>
+        <div className='opts opt-move-right' onClick={moveRAction}>
           <i className='opt-icon'>
             <MoveRightIcon />
           </i>
           move right
         </div>
-        <div className='opts opt-move-left'>
+        <div className='opts opt-move-left' onClick={moveLAction}>
           <i className='opt-icon'>
             <MoveLeftIcon />
           </i>

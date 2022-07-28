@@ -1,19 +1,23 @@
 import './index.css';
-
+import { useContext } from 'react';
 import { FaPlus as PlusIcon } from 'react-icons/fa';
 import { Task } from '../Task';
 
-const Board = (props) => {
-  const { tasks, todos } = props;
+import { BoardContext, TaskContext } from '../../Context/Context';
+
+const Board = () => {
+  const { todoState, setTodoState } = useContext(BoardContext);
+  const { taskState, setTaskState } = useContext(TaskContext);
+
   return (
     <>
-      {todos.map((todo) => (
+      {todoState.map((todo) => (
         <div className='board-container' key={Math.random()}>
           <div className='board-content'>
             <div className='board-title'>{todo.title}</div>
             <div className='board-desc'>{todo.description}</div>
 
-            <Task tasks={tasks} todos={todo} />
+            <Task tasks={taskState} todos={todo} />
 
             <div className='new-task'>
               <i>

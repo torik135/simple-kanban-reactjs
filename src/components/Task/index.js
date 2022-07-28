@@ -5,28 +5,64 @@ task.percentage
 
 import './index.css';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { FaEllipsisH as ThreeDotsIcon } from 'react-icons/fa';
 import { TaskOpt } from '../TaskOpt';
+import { BoardContext, TaskContext } from '../../Context/Context';
 
 const Task = (props) => {
   const { tasks, todos } = props;
-
-  const [optState, setOptState] = useState(false);
   const [idState, setIdState] = useState('');
 
-  // async function getIdAsync(id) {
-  //   var getId = await document.getElementById(id);
-  //   getId.style.display = 'block';
-  //   return getId;
-  // }
-  // getIdAsync(idState);
+  const { todoState, setTodoState } = useContext(BoardContext);
+  const { taskState, setTaskState } = useContext(TaskContext);
+
+  const delAct = (id) => {
+    /*
+    0. call the alert.
+    1. use filter & filter out the data based on task.id
+    */
+    console.log('DELETE ACTION', id);
+  };
+
+  const editAct = (id) => {
+    /*
+    0. call the form.
+    1.  - take task.id
+        - show form with input id(hidden), task.name, task.percentage, and btn submit
+        - set
+    */
+    console.log('EDIT ACTION', id);
+  };
+
+  const moveRAct = (taskTodoId) => {
+    /*
+    1. if task.todo_id < task.length
+          task.todo_id + 1. 
+        else 
+          task.todo_id = 0. (first)
+    */
+    console.log('MOVE RIGHT ACTION', taskTodoId);
+    var taskTodoId = taskTodoId + 1;
+  };
+
+  const moveLAct = (task) => {
+    /*
+    1. if task.todo_id > 1
+          task.todo_id - 1. 
+        else
+          task.todo_id = task.length - 1. (last)
+    */
+    console.log('MOVE LEFT ACTION', task);
+  };
 
   useEffect(() => {
     async function getIdAsync(id) {
       var getId = await document.getElementById(id);
-      getId.style.display = 'block';
-      return getId;
+      if (getId) {
+        getId.style.display = 'block';
+        return getId;
+      }
     }
     getIdAsync(idState);
   }, [idState]);
@@ -39,10 +75,7 @@ const Task = (props) => {
           <div className='task-container' key={Math.random()}>
             <div className='task-content'>
               <div className='task-name'>{task.name}</div>
-              <div
-                className='task-progress_container'
-                // onMouseLeave={() => setOptState(false)}
-              >
+              <div className='task-progress_container'>
                 <div className='task-progress_graph'>
                   <div
                     className='progress-color'
@@ -66,7 +99,12 @@ const Task = (props) => {
                   style={{ display: 'none' }}
                   onMouseLeave={() => setIdState('')}
                 >
-                  <TaskOpt />
+                  <TaskOpt
+                    editAction={() => editAct(task.id)}
+                    deleteAction={() => delAct(task.id)}
+                    moveRAction={() => moveRAct(task.todo_id)}
+                    moveLAction={() => moveLAct(task.todo_id)}
+                  />
                 </div>
               </div>
             </div>
