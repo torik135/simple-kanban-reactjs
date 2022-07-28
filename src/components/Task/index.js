@@ -13,47 +13,23 @@ import { BoardContext, TaskContext } from '../../Context/Context';
 const Task = (props) => {
   const { tasks, todos } = props;
   const [idState, setIdState] = useState('');
-
-  const { todoState, setTodoState } = useContext(BoardContext);
   const { taskState, setTaskState } = useContext(TaskContext);
+  const { todoState } = useContext(BoardContext);
 
-  const delAct = (id) => {
-    /*
-    0. call the alert.
-    1. use filter & filter out the data based on task.id
-    */
-    console.log('DELETE ACTION', id);
+  const delAct = (task) => {
+    setTaskState(taskState.filter((ts) => ts.id !== task.id));
   };
 
-  const editAct = (id) => {
-    /*
-    0. call the form.
-    1.  - take task.id
-        - show form with input id(hidden), task.name, task.percentage, and btn submit
-        - set
-    */
-    console.log('EDIT ACTION', id);
+  const editAct = (task) => {
+    console.log(task);
   };
 
-  const moveRAct = (taskTodoId) => {
-    /*
-    1. if task.todo_id < task.length
-          task.todo_id + 1. 
-        else 
-          task.todo_id = 0. (first)
-    */
-    console.log('MOVE RIGHT ACTION', taskTodoId);
-    var taskTodoId = taskTodoId + 1;
+  const moveRAct = (task) => {
+    console.log(task.todo_id);
   };
 
   const moveLAct = (task) => {
-    /*
-    1. if task.todo_id > 1
-          task.todo_id - 1. 
-        else
-          task.todo_id = task.length - 1. (last)
-    */
-    console.log('MOVE LEFT ACTION', task);
+    console.log(task);
   };
 
   useEffect(() => {
@@ -64,8 +40,9 @@ const Task = (props) => {
         return getId;
       }
     }
+
     getIdAsync(idState);
-  }, [idState]);
+  }, [idState, taskState]);
 
   return (
     <>
@@ -100,10 +77,10 @@ const Task = (props) => {
                   onMouseLeave={() => setIdState('')}
                 >
                   <TaskOpt
-                    editAction={() => editAct(task.id)}
-                    deleteAction={() => delAct(task.id)}
-                    moveRAction={() => moveRAct(task.todo_id)}
-                    moveLAction={() => moveLAct(task.todo_id)}
+                    editAction={() => editAct(task)}
+                    deleteAction={() => delAct(task)}
+                    moveRAction={() => moveRAct(task)}
+                    moveLAction={() => moveLAct(task)}
                   />
                 </div>
               </div>
