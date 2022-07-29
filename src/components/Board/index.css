@@ -40,11 +40,20 @@
 
 .new-task {
   padding-top: 24px;
-  cursor: pointer;
   display: flex;
   align-items: center;
 }
 
 .new-task i {
   padding-right: 8px;
+}
+
+.new-task button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.new-task button:hover {
+  transform: scale(1.2);
 }

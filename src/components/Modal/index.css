@@ -1,0 +1,22 @@
+.modal-container {
+  position: fixed;
+  z-index: 99;
+}
+
+.modal-content {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+.modal-box {
+  background: #fff;
+  border-radius: var(--border5);
+  padding: var(--padglobal);
+  min-height: 250px;
+  min-width: 300px;
+  box-shadow: 0 0 100px 10px #111;
+}
