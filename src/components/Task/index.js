@@ -26,37 +26,45 @@ const Task = (props) => {
 
   const moveRAct = (task) => {
     console.log(task.todo_id);
-    var taskToMove = task.todo_id < 0;
-    console.log(taskToMove);
-    if (taskToMove) {
+    var taskToMove = task.todo_id;
+    console.log(
+      `todo_id ${task.todo_id} | todo length: ${todoState.length} | taskToMove ${taskToMove}`,
+    );
+
+    if (taskToMove !== todoState.length) {
       var moveR = task.todo_id + 1;
       console.log(`IF: ${task.todo_id} move to ${moveR}`);
       setTaskState((prev) =>
         prev.map((e) => (e.id === task.id ? { ...e, todo_id: moveR } : e)),
       );
-    } else {
+    }
+    if (taskToMove == todoState.length) {
       var moveFirst = (task.todo_id = 1);
-      console.log(`ELSE: move to ${moveFirst}`);
+      console.log(`ELSE: ${task.todo_id} move to ${moveFirst}`);
       setTaskState((prev) =>
         prev.map((e) => (e.id === task.id ? { ...e, todo_id: moveFirst } : e)),
       );
-      console.log(taskState);
     }
   };
 
   const moveLAct = (task) => {
     console.log(task.todo_id);
-    var taskToMove = task.todo_id < todoState.length;
-    console.log(taskToMove);
-    if (!taskToMove) {
+    var taskToMove = task.todo_id;
+    console.log(
+      `todo_id ${task.todo_id} | todo length: ${todoState.length} | taskToMove ${taskToMove}`,
+    );
+
+    if (taskToMove !== 0) {
       var moveL = task.todo_id - 1;
-      console.log(`IF: move to ${moveL}`);
+      console.log(`IF: ${task.todo_id} move to ${moveL}`);
       setTaskState((prev) =>
         prev.map((e) => (e.id === task.id ? { ...e, todo_id: moveL } : e)),
       );
-    } else {
-      var moveLast = (task.todo_id = todoState.length);
-      console.log(`ELSE: move to ${moveLast}`);
+    }
+    if (taskToMove == 1) {
+      var tempMoveLast = task.todo_id;
+      var moveLast = todoState.length;
+      console.log(`ELSE: ${task.todo_id} move to ${moveLast}`);
       setTaskState((prev) =>
         prev.map((e) => (e.id === task.id ? { ...e, todo_id: moveLast } : e)),
       );
