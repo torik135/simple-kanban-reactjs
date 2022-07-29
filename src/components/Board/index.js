@@ -25,6 +25,7 @@ const Board = () => {
               .filter((taskFiltered) => taskFiltered.todo_id === todo.id)
               .map((task) => (
                 <Task
+                  key={Math.random()}
                   tasks={task}
                   todos={todo}
                   editAct={() => editAct(task)}

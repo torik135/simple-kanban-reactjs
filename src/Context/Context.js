@@ -1,4 +1,5 @@
 import { createContext, useState } from 'react';
+import { todoList, taskList } from '../Utils/data';
 
 const BoardContext = createContext();
 const TaskContext = createContext();
@@ -6,8 +7,8 @@ const TaskContext = createContext();
 const Context = (props) => {
   const { children } = props;
 
-  const [todoState, setTodoState] = useState([]);
-  const [taskState, setTaskState] = useState([]);
+  const [todoState, setTodoState] = useState(todoList);
+  const [taskState, setTaskState] = useState(taskList);
 
   return (
     <BoardContext.Provider value={{ todoState, setTodoState }}>
