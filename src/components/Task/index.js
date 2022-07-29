@@ -30,11 +30,20 @@ const Task = (props) => {
     console.log(taskToMove);
     if (taskToMove) {
       var moveR = task.todo_id + 1;
-      console.log(`IF: move to ${moveR}`);
+      console.log(`IF: ${task.todo_id} move to ${moveR}`);
+      // below add new with todo_id keys [x]
+      // setTaskState([...taskState, { todo_id: moveR }]);
+      setTaskState((prev) =>
+        prev.map((e) => (e.id === task.id ? { ...e, todo_id: moveR } : e)),
+      );
     } else {
       // move to first board / card
       var taskFirst = (task.todo_id = 1);
       console.log(`ELSE: move to ${taskFirst}`);
+      setTaskState((prev) =>
+        prev.map((e) => (e.id === task.id ? { ...e, todo_id: taskFirst } : e)),
+      );
+      console.log(taskState);
     }
   };
 
