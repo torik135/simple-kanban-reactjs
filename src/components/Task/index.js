@@ -26,22 +26,19 @@ const Task = (props) => {
 
   const moveRAct = (task) => {
     console.log(task.todo_id);
-    var taskToMove = task.todo_id < todoState.length;
+    var taskToMove = task.todo_id < 0;
     console.log(taskToMove);
     if (taskToMove) {
       var moveR = task.todo_id + 1;
       console.log(`IF: ${task.todo_id} move to ${moveR}`);
-      // below add new with todo_id keys [x]
-      // setTaskState([...taskState, { todo_id: moveR }]);
       setTaskState((prev) =>
         prev.map((e) => (e.id === task.id ? { ...e, todo_id: moveR } : e)),
       );
     } else {
-      // move to first board / card
-      var taskFirst = (task.todo_id = 1);
-      console.log(`ELSE: move to ${taskFirst}`);
+      var moveFirst = (task.todo_id = 1);
+      console.log(`ELSE: move to ${moveFirst}`);
       setTaskState((prev) =>
-        prev.map((e) => (e.id === task.id ? { ...e, todo_id: taskFirst } : e)),
+        prev.map((e) => (e.id === task.id ? { ...e, todo_id: moveFirst } : e)),
       );
       console.log(taskState);
     }
@@ -54,10 +51,15 @@ const Task = (props) => {
     if (!taskToMove) {
       var moveL = task.todo_id - 1;
       console.log(`IF: move to ${moveL}`);
+      setTaskState((prev) =>
+        prev.map((e) => (e.id === task.id ? { ...e, todo_id: moveL } : e)),
+      );
     } else {
-      // move to last board / card
-      var taskLast = (task.todo_id = todoState.length);
-      console.log(`ELSE: move to ${taskLast}`);
+      var moveLast = (task.todo_id = todoState.length);
+      console.log(`ELSE: move to ${moveLast}`);
+      setTaskState((prev) =>
+        prev.map((e) => (e.id === task.id ? { ...e, todo_id: moveLast } : e)),
+      );
     }
   };
 
