@@ -2,6 +2,7 @@ import './index.css';
 import { useState, useContext } from 'react';
 import { FaPlus as PlusIcon } from 'react-icons/fa';
 import { Task } from '../Task';
+import { Toast } from '../Toast';
 import { delAct, editAct, moveRAct, moveLAct } from '../../Utils/functions';
 import { BoardContext, TaskContext } from '../../Context/Context';
 
@@ -9,12 +10,27 @@ const Board = () => {
   const { todoState } = useContext(BoardContext);
   const { taskState, setTaskState } = useContext(TaskContext);
 
+  const [toastState, setToastState] = useState(false);
+  const [toastLabel, setToastLabel] = useState('label');
+  const [toastBody, setToastBody] = useState('body');
+  const [toastBg, setToastBg] = useState('red');
+  const [toastFnt, setToastFnt] = useState('white');
+
   const addAct = (todoid) => {
     alert(`Add on todo with ID: ${todoid}`);
   };
 
   return (
     <>
+      {toastState && (
+        <Toast
+          label={toastLabel}
+          bgcolor={toastBg}
+          fontcolor={toastFnt}
+          body={toastBody}
+          toastFunc={() => setToastState(!toastState)}
+        />
+      )}
       {todoState.map((todo) => (
         <div className='board-container' key={Math.random()}>
           <div className='board-content'>
@@ -29,9 +45,42 @@ const Board = () => {
                   tasks={task}
                   todos={todo}
                   editAct={() => editAct(task)}
-                  delAct={() => delAct(task, taskState, setTaskState)}
-                  moveRAct={() => moveRAct(task, todoState, setTaskState)}
-                  moveLAct={() => moveLAct(task, todoState, setTaskState)}
+                  delAct={() =>
+                    delAct(
+                      task,
+                      taskState,
+                      setTaskState,
+                      setToastState,
+                      setToastLabel,
+                      setToastBody,
+                      setToastBg,
+                      setToastFnt,
+                    )
+                  }
+                  moveRAct={() =>
+                    moveRAct(
+                      task,
+                      todoState,
+                      setTaskState,
+                      setToastState,
+                      setToastLabel,
+                      setToastBody,
+                      setToastBg,
+                      setToastFnt,
+                    )
+                  }
+                  moveLAct={() =>
+                    moveLAct(
+                      task,
+                      todoState,
+                      setTaskState,
+                      setToastState,
+                      setToastLabel,
+                      setToastBody,
+                      setToastBg,
+                      setToastFnt,
+                    )
+                  }
                 />
               ))}
             <div className='new-task'>
