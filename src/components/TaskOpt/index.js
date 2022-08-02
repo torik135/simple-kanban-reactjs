@@ -1,5 +1,3 @@
-import './index.css';
-
 import {
   FaArrowRight as MoveRightIcon,
   FaArrowLeft as MoveLeftIcon,
@@ -7,32 +5,36 @@ import {
   FaTrash as DeleteIcon,
 } from 'react-icons/fa';
 
+const optClass =
+  'flex items-center justify-left p-[6px] mb-[4px] curson-pointer hover:bg-gray-300 hover:rounded hover:scale-110 cursor-pointer';
+const optClassI = 'flex items-center pr-[8px]';
+
 const TaskOpt = (props) => {
   const { editAction, deleteAction, moveRAction, moveLAction } = props;
 
   return (
-    <div className='task-opt-container'>
-      <div className='task-opt-content'>
-        <div className='opts opt-delete' onClick={deleteAction}>
-          <i className='opt-icon'>
+    <div className='relative'>
+      <div className='flex flex-col items-left justify-center p[8px]'>
+        <div className={optClass} onClick={deleteAction}>
+          <i className={optClassI}>
             <DeleteIcon />
           </i>
           delete
         </div>
-        <div className='opts opt-edit' onClick={editAction}>
-          <i className='opt-icon'>
+        <div className={optClass} onClick={editAction}>
+          <i className={optClassI}>
             <EditIcon />
           </i>
           edit
         </div>
-        <div className='opts opt-move-right' onClick={moveRAction}>
-          <i className='opt-icon'>
+        <div className={optClass} onClick={moveRAction}>
+          <i className={optClassI}>
             <MoveRightIcon />
           </i>
           move right
         </div>
-        <div className='opts opt-move-left' onClick={moveLAction}>
-          <i className='opt-icon'>
+        <div className={optClass} onClick={moveLAction}>
+          <i className={optClassI}>
             <MoveLeftIcon />
           </i>
           move left

@@ -1,11 +1,9 @@
-import './index.css';
-
 const Modal = (props) => {
   const { children } = props;
   return (
-    <div className='modal-container'>
-      <div className='modal-content'>
-        <div className='modal-box'>
+    <div className='fixed z-[99]'>
+      <div className='text-center flex align-center justify-center m-h-screen m-w-screen'>
+        <div className='bg-white rounded m-h-[250px] shadow-md'>
           <h2>MODAL</h2>
           {children}
         </div>

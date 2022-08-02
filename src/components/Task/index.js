@@ -3,8 +3,6 @@ task.percentage
   progress-color = task-progress_graph / 100 = 150 / 100 = 1.5
 */
 
-import './index.css';
-
 import { useState, useEffect, useContext } from 'react';
 import { FaEllipsisH as ThreeDotsIcon } from 'react-icons/fa';
 import { TaskOpt } from '../TaskOpt';
@@ -29,29 +27,51 @@ const Task = (props) => {
   }, [idState, taskState, todoState]);
   return (
     <>
-      <div className='task-container' key={Math.random()}>
-        <div className='task-content'>
-          <div className='task-name'>{tasks.name}</div>
-          <div className='task-progress_container'>
-            <div className='task-progress_graph'>
-              <div
-                className='progress-color'
-                style={{
-                  width: `${tasks.progress_percentage * 1.5}px`,
-                }}
-              ></div>
-            </div>
-            <div className='task-progress_text'>
-              {tasks.progress_percentage}%
-            </div>
+      <div
+        className='p-2 transition-all duration-300 ease-linear p-1'
+        key={Math.random()}
+      >
+        <div
+          className={`rounded p-3 text-[12px] font-bold w-full ${
+            tasks.progress_percentage === 100 ? `bg-green-100` : `bg-white`
+          }`}
+        >
+          <div className='border-b border-dashed border-slate-400 pb-2'>
+            {tasks.name}
+          </div>
+          <div className='flex flex-row justify-between items-center pt-3'>
+            {tasks.progress_percentage !== 100 ? (
+              <>
+                <div className='flex w-[140px] h-[7px] rounded bg-gray-200'>
+                  <div
+                    className={`rounded h-[7px] absolute ${
+                      tasks.progress_percentage < 70
+                        ? `bg-gradient-to-r from-red-400 to-yellow-400`
+                        : `bg-gradient-to-r from-yellow-400 to-green-400`
+                    }`}
+                    style={{
+                      width: `${tasks.progress_percentage * 1.4}px`,
+                    }}
+                  ></div>
+                </div>
+                <div className='pl-1'>{tasks.progress_percentage}%</div>
+              </>
+            ) : (
+              <div className='pl-1'>
+                {tasks.progress_percentage}%{' '}
+                <span className='bg-green-200 p-1 ml-1 rounded text-green-800 border-2 border-green-700'>
+                  DONE
+                </span>
+              </div>
+            )}
             <div
-              className='task-progress_opt'
+              className='text-[20px] flex items-center cursor-pointer pl-1'
               onClick={() => setIdState(tasks.id)}
             >
               <ThreeDotsIcon />
             </div>
             <div
-              className='opt'
+              className='absolute right-[5px] translate-x-[60%] translate-y-[30%] bg-white text-[12px] rounded p-2 z-[9]'
               id={tasks.id}
               style={{ display: 'none' }}
               onMouseLeave={() => setIdState('')}

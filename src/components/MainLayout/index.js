@@ -1,9 +1,6 @@
-import './index.css';
-
 import { useEffect, useContext } from 'react';
 
 import { BoardContext, TaskContext } from '../../Context/Context';
-// import { todoList, taskList } from '../../Utils/data';
 import { Board } from '../Board';
 
 const MainLayout = () => {
@@ -15,9 +12,9 @@ const MainLayout = () => {
   useEffect(() => {}, [todoState, taskState]);
 
   return (
-    <div className='main-container'>
-      <div className='main-content'>
-        <div className='main-board'>
+    <div className='p-2 pl-[24px] pt-[70px] h-screen'>
+      <div className='h-full'>
+        <div className='flex p-2 overflow-x-scroll'>
           {todoNotEmpty ? <Board /> : <p>No Task</p>}
         </div>
       </div>
